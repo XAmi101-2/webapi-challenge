@@ -27,6 +27,34 @@ router.get('/:id', (req, res) => {
 });
 
 
+// router.post('/', (req, res) => {
+//     const change = req.body
+//     // const change = {...req.body, project_id: req.params.project_id};
+//     // console.log("change", change);
+//     if (!req.body.project_id || !req.body.description || !req.body.notes || req.body.completed === undefined) {
+//         res.status(400).json({
+//             message: "missing data field, pleace check you have  a project_id, notes, description, and a completed with a true or false"
+//         })
+//     } else {
+//         Action.insert(change)
+//             .then(action => res.status(201).json(action))
+//             .catch(() =>
+//                 res.status(500).json({
+//                     errorMessage: "unable to add the action in the database"
+//                 })
+//             );
+//     }
+// });
+
+router.post('/', validateUser, (req, res) => {
+    const update = req.body
+     Action
+     .insert(update)
+     .then(actionNew => res.status(201).json(actionNew))
+     .catch(() =>
+         res.status(500).json({ errorMessage: "unable to add the action in the database" })
+       );
+ });
 
 router.delete('/:id', (req, res) => {
     const id = req.params.id
@@ -68,6 +96,19 @@ router.put('/:id', (req, res) => {
     }
 });
 
+//custom middleware
+function validateUser(req, res, next) {
+          const changed = req.body;
+    
+        if (changed) {
+            if (!req.body.project_id || !req.body.description || !req.body.notes || req.body.completed === undefined) {
+                res.status(400).json({message: "missing name field"})
+            } 
+        } else {
+            res.status(400).json({ message: "missing user data"})
+        }
+        next();
+    };
 
 
 
