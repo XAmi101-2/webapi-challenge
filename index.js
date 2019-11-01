@@ -35,7 +35,7 @@ function logger(req, res, next) {
 };
 
 
-const port = 9000;
+const port = process.env.PORT || 9000;
 server.listen(port, () => {
     console.log(`Server listening on port ${port}!`)
 })

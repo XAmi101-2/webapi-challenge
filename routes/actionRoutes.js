@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
 //     // console.log("change", change);
 //     if (!req.body.project_id || !req.body.description || !req.body.notes || req.body.completed === undefined) {
 //         res.status(400).json({
-//             message: "missing data field, pleace check you have  a project_id, notes, description, and a completed with a true or false"
+//             message: "missing data field, please check you have  a project_id, notes, description, and a completed with a true or false"
 //         })
 //     } else {
 //         Action.insert(change)
@@ -102,7 +102,8 @@ function validateUser(req, res, next) {
     
         if (changed) {
             if (!req.body.project_id || !req.body.description || !req.body.notes || req.body.completed === undefined) {
-                res.status(400).json({message: "missing name field"})
+                res.status(400).json({message: "missing data field, please check you have  a project_id, notes, description, and a completed with a true or false"
+            })
             } 
         } else {
             res.status(400).json({ message: "missing user data"})
