@@ -24,7 +24,7 @@ server.use("/api/projects", projectRoutes);
 server.use("/api/actions", actionRoutes);
 
 server.get('/', (req, res) => {
-  res.send(`<h2>Let's DO this!</h2>`)
+  res.send(`<h2>Let's DO This!</h2>`)
 });
 
 
