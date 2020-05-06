@@ -26,13 +26,24 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+Express, a light and unopinionated framework that sits on top of Node.js and makes it easier to create web applications and services. it expands the usablity of node js, since node is just an environment and express provides access to the response and request  web traffic. 
+
 - [ ] Describe Middleware?
+ Middleware are functions that extend software, meaning they provide added features to express. it is essentially a pipleline where request and response are handled. It is how everything works in express
 
 - [ ] Describe a Resource?
 
+In RESTful Web API, everything as a resource and each each resource is accessible via a unique URI. communication with resources are done over HTTP and it is mangaged through HTTP methods.
+Meaning in terms of endpoints, /users is an example address to an array of resource for users while, the /users/:id is an example address to a single user resource.
+
+
 - [ ] What can the API return to help clients know if a request was successful?
+    
+    a 200 or 201 HTTP status code.
 
 - [ ] How can we partition our application into sub-applications?
+
+    By using multiple specific nested routers.
 
 ## Project Setup
 

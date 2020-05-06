@@ -12,3 +12,30 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
+
+
+const express = require('express');
+const projectRoutes = require('./routes/projectRoutes.js');
+const actionRoutes = require('./routes/actionRoutes.js');
+const server = express();
+
+server.use(express.json());
+server.use("/api/projects", projectRoutes);
+server.use("/api/actions", actionRoutes);
+
+server.get('/', (req, res) => {
+  res.send(`<h2>Let's DO This!</h2>`)
+});
+
+
+server.use(logger);
+function logger(req, res, next) {
+    console.log(`A ${req.method} to ${req.path} at ${Date.now()}`)
+    next();
+};
+
+
+const port = process.env.PORT || 9000;
+server.listen(port, () => {
+    console.log(`Server listening on port ${port}!`)
+})
